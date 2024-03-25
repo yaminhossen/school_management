@@ -1,0 +1,37 @@
+@routeName = user-designation
+@host = http://localhost:8082/api/
+
+GET {{host}}{{routeName}} HTTP/1.1
+
+###
+GET {{host}}{{routeName}}/details/1 HTTP/1.1
+
+
+###
+GET {{host}}user/2/designation HTTP/1.1
+
+
+
+
+###
+DELETE {{host}}{{routeName}}/delete/4 HTTP/1.1
+
+###
+POST {{host}}{{routeName}}/store HTTP/1.1
+content-type: application/json
+
+{
+        "user_id": 3,
+        "designation": "admin",
+        "description": "this is ok"
+}
+
+###
+POST http://localhost:8082/{{routeName}}/update/1 HTTP/1.1
+content-type: application/json
+
+{
+    "user_id": 3,
+        "designation": "admin",
+        "description": "this is ok"
+}

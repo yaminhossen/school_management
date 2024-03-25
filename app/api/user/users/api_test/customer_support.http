@@ -1,0 +1,47 @@
+@routeName = user
+@host = http://localhost:8082/api/
+
+GET {{host}}{{routeName}} HTTP/1.1
+
+###
+GET {{host}}{{routeName}}/details/22 HTTP/1.1
+
+
+###
+GET {{host}}{{routeName}}/full-details/2 HTTP/1.1
+
+
+###
+DELETE {{host}}{{routeName}}/delete HTTP/1.1
+content-type: application/json
+
+{
+        "id": 2
+}
+
+###
+POST {{host}}{{routeName}}/store HTTP/1.1
+content-type: application/json
+
+{
+        "user_uid": 12,
+        "user_name": "alif",
+        "password": "32323",
+        "confirm_password": "111",
+        "email": "alif@gmail.com",
+        "role": "admin"
+}
+
+###
+POST {{host}}{{routeName}}/update HTTP/1.1
+content-type: application/json
+
+{
+        "id":1,
+        "user_uid": 1,
+        "user_name": "alif sagir",
+        "password": "1234",
+        "confirm_password": "1234",
+        "email": "sagir@gmail.com",
+        "role": "student"
+}

@@ -1,0 +1,33 @@
+@routeName = user-work
+@host = http://localhost:8082/api/
+
+GET {{host}}{{routeName}} HTTP/1.1
+
+###
+GET {{host}}{{routeName}}/details/2 HTTP/1.1
+
+
+###
+GET {{host}}user/1/work HTTP/1.1
+
+
+
+
+###
+DELETE {{host}}{{routeName}}/delete/2 HTTP/1.1
+
+###
+POST {{host}}{{routeName}}/store HTTP/1.1
+content-type: application/json
+
+{
+        "title": "teaching"
+}
+
+###
+POST {{host}}{{routeName}}/update/4 HTTP/1.1
+content-type: application/json
+
+{
+    "title": "teaching"
+}
