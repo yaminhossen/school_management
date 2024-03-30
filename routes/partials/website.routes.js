@@ -23,6 +23,9 @@ module.exports = (mainserver) => {
 		.get("/home", function (req, res) {
 			return res.render("frontend/home");
 		})
+		.get("/dashboard", function (req, res) {
+			return res.render("backend/dashboard");
+		})
 	// 	.get("/about", website_controller.about)
 	
 	return router

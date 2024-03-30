@@ -10,6 +10,7 @@
     "dev": "vite",
     "build": "vite build",
     "watch": "vite build -w",
+    "watch_super_admin": "npx vite build --config vite.super_admin_config.js -w",
     "scss": "npx sass public/backend/scss/style.scss public/backend/styles/style.css -w",
     "scss2": "npx sass public/assets/sass/style.scss public/assets/styles/style.css -w",
     "preview": "vite preview"
@@ -19,6 +20,7 @@
   "license": "ISC",
   "dependencies": {
     "@tinymce/tinymce-react": "^4.3.0",
+    "axios": "^1.6.8",
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",
     "console-stamp": "^3.1.2",
@@ -30,6 +32,7 @@
     "express-session": "^1.17.3",
     "express-validator": "^7.0.1",
     "filefy": "^0.1.11",
+    "html-react-parser": "^5.1.10",
     "jsonwebtoken": "^9.0.0",
     "moment": "^2.30.1",
     "mongoose": "^7.1.0",
@@ -42,6 +45,7 @@
     "scss": "^0.2.4",
     "sequelize": "^6.35.2",
     "vite": "^4.4.9",
+    "web-vitals": "^3.5.2",
     "winston": "^3.11.0"
   },
   "devDependencies": {

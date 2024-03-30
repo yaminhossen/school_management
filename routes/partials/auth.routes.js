@@ -17,13 +17,17 @@ const userModel = db.users
 router
 // login method
 	.post("/api/login-submit", async function (req, res) {
-		console.log("token form frontend",req.headers.authorization.split(' ')[1]);
-		const { email, password } = req.body;
-		// console.log('pre pass', password);
-		let token_salt = crypto.randomBytes(64).toString("hex").substring(0, 20);
-		let user = await userModel.findOne({ where: { email: email } });
-		// console.log('last pass', user);
-		// console.log('found user',user);
+		
+		
+		// return res.redirect("/login");
+		return res.status(201).json({ data: 'employee'});
+	})
+	/* .post("/api/login-submit", async function (req, res) {
+		// console.log("token form frontend",req.headers.authorization.split(' ')[1]);
+		// const { email, password } = req.body;
+		// let token_salt = crypto.randomBytes(64).toString("hex").substring(0, 20);
+		// let user = await userModel.findOne({ where: { email: email } });
+		
 		// return ;
 		if (user) {
 			let passMatch = await bcrypt.compare(password, user?.password);
@@ -61,8 +65,8 @@ router
 		}
 		
 		// return res.redirect("/login");
-		return res.status(401).json({ code: 'user not found', message: 'your crediential does not match' });;
-	})
+		return res.status(201).json({ code: 'user not found', message: 'your crediential does not match'});
+	}) */
 
 	// signup method
 	/* .post("/signup-submit", async function (req, res) {
