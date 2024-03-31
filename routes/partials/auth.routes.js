@@ -22,11 +22,11 @@ router
 		// return res.redirect("/login");
 		return res.status(201).json({ data: 'employee'});
 	})
-	/* .post("/api/login-submit", async function (req, res) {
+	.post("/api/login-submite", async function (req, res) {
 		// console.log("token form frontend",req.headers.authorization.split(' ')[1]);
-		// const { email, password } = req.body;
-		// let token_salt = crypto.randomBytes(64).toString("hex").substring(0, 20);
-		// let user = await userModel.findOne({ where: { email: email } });
+		const { email, password } = req.body;
+		let token_salt = crypto.randomBytes(64).toString("hex").substring(0, 20);
+		let user = await userModel.findOne({ where: { email: email } });
 		
 		// return ;
 		if (user) {
@@ -66,7 +66,7 @@ router
 		
 		// return res.redirect("/login");
 		return res.status(201).json({ code: 'user not found', message: 'your crediential does not match'});
-	}) */
+	}) 
 
 	// signup method
 	/* .post("/signup-submit", async function (req, res) {
