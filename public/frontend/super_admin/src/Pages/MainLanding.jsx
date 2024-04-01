@@ -76,10 +76,10 @@ function MainLanding() {
     const { fetch_all_customer, fetch_pending_customer, fetch_interested_customer, fetch_upcoming_customer } = setup.actions;
 
     useEffect(() => {
-        fetch_all_customer();
-        fetch_pending_customer();
-        fetch_interested_customer();
-        fetch_upcoming_customer();
+        // fetch_all_customer();
+        // fetch_pending_customer();
+        // fetch_interested_customer();
+        // fetch_upcoming_customer();
         // console.log("data stroe from user end", data_store);
     }, [])
     console.log('log data_store', data_store);
@@ -132,7 +132,7 @@ function MainLanding() {
                                                     </div>
                                                 </div>
                                                 <div className="col-5 align-self-end">
-                                                    <img src="assets/images/profile-img.png" alt="" className="img-fluid" />
+                                                    <img src="/frontend/assets/images/profile-img.png" alt="" className="img-fluid" />
                                                 </div>
                                             </div>
                                         </div>
@@ -140,7 +140,7 @@ function MainLanding() {
                                             <div className="row">
                                                 <div className="col-sm-4">
                                                     <div className="avatar-md profile-user-wid mb-4">
-                                                        <img src="assets/images/users/avatar-1.jpg" alt="" className="img-thumbnail rounded-circle" />
+                                                        <img src="/frontend/assets/images/users/avatar-1.jpg" alt="" className="img-thumbnail rounded-circle" />
                                                     </div>
                                                     <h5 className="font-size-15 text-truncate">Henry Price</h5>
                                                     <p className="text-muted mb-0 text-truncate">UI/UX Designer</p>
@@ -587,7 +587,7 @@ function MainLanding() {
                                                 <tr>
                                                     <th scope="row">
                                                         <div>
-                                                            <img src="assets/images/product/img-7.png" alt="" className="avatar-sm" />
+                                                            <img src="/frontend/assets/images/product/img-7.png" alt="" className="avatar-sm" />
                                                         </div>
                                                     </th>
                                                     <td>
@@ -601,7 +601,7 @@ function MainLanding() {
                                                 <tr>
                                                     <th scope="row">
                                                         <div>
-                                                            <img src="assets/images/product/img-4.png" alt="" className="avatar-sm" />
+                                                            <img src="/frontend/assets/images/product/img-4.png" alt="" className="avatar-sm" />
                                                         </div>
                                                     </th>
                                                     <td>

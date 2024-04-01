@@ -29,18 +29,18 @@ function Header(props) {
                             {/* <a >sjlfjdsl</a> */}
                             <a href="index.html" className="logo logo-dark">
                                 <span className="logo-sm">
-                                    <img src="assets/images/logo.svg" alt="" height={22} />
+                                    <img src="/frontend/assets/images/logo.svg" alt="" height={22} />
                                 </span>
                                 <span className="logo-lg">
-                                    <img src="assets/images/logo-dark.png" alt="" height={19} />
+                                    <img src="/frontend/assets/images/logo-dark.png" alt="" height={19} />
                                 </span>
                             </a>
                             <a href="index.html" className="logo logo-light">
                                 <span className="logo-sm">
-                                    <img src="assets/images/logo-light.svg" alt="" height={22} />
+                                    <img src="/frontend/assets/images/logo-light.svg" alt="" height={22} />
                                 </span>
                                 <span className="logo-lg">
-                                    <img src="assets/images/logo-light.png" alt="" height={19} />
+                                    <img src="/frontend/assets/images/logo-light.png" alt="" height={19} />
                                 </span>
                             </a>
                         </div>
@@ -108,7 +108,7 @@ function Header(props) {
                             >
                                 <img
                                     className="rounded-circle header-profile-user"
-                                    src="assets/images/users/avatar-1.jpg"
+                                    src="/frontend/assets/images/users/avatar-1.jpg"
                                     alt="Header Avatar"
                                 />
                                 <span className="d-none d-xl-inline-block ms-1" key="t-henry">
