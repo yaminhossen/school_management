@@ -13,9 +13,6 @@ module.exports = (mainserver) => {
 		.get("/login", function (req, res) {
 			return res.render("auth/login");
 		})
-		.get("/signup", function (req, res) {
-			return res.render("auth/register");
-		})
 		.get("/home", function (req, res) {
 			return res.render("frontend/home");
 		})

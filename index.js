@@ -10,6 +10,7 @@ const formData = require('express-form-data');
 var cors = require('cors');
 const log = require("./app/utilites/log");
 const logger = require("./app/utilites/logger");
+const websiteRoutes = require("./routes/partials/website.routes");
 
 // parse application/x-www-form-urlencoded
 // server.use(bodyParser.urlencoded({ extended: false }));
@@ -51,6 +52,7 @@ server.use((req, res, next) => {
 
 // routes
 server.use("/api",allRoutes(server));
+// server.use("/",websiteRoutes());
 
 // mongoose.connect("mongodb+srv://mongo:0h4lYcX9RCOo8pHn@cluster0.gn949by.mongodb.net/blogDB")
 // 	.then(()=>{

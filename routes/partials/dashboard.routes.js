@@ -6,7 +6,7 @@ const router = express.Router();
 // 	return res.render("backend/dashboard");
 // });
 
-router.get("/dashboard", function (req, res) {
+router.get("/dashboard/fghfgh", function (req, res) {
 	// console.log(req.session);
 	return res.render("backend/dashboard");
 });
