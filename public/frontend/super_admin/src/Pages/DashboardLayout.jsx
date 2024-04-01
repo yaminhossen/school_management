@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Layout() {
+    const [tokenLoaded, setTokenLoaded] = useState(false)
     const navigate = useNavigate();
     useEffect(() => {
         let token = localStorage.getItem('token');
@@ -16,11 +17,12 @@ function Layout() {
                     config.headers['Authorization'] = `Bearer ${token}`;
                     return config;
                 }
-            );
-            axios.interceptors.response.use(function (response) {
-                return response;
-            }, function (error) {
-                if (error.response.status == 401) {
+                );
+                
+                axios.interceptors.response.use(function (response) {
+                    return response;
+                }, function (error) {
+                    if (error.response.status == 401) {
                     localStorage.removeItem('token');
                     // window.location.href = "#/login";
                     return navigate("/login");
@@ -31,10 +33,16 @@ function Layout() {
             // window.location.href = "#/login";
             return navigate("/login");
         }
+        setTokenLoaded(true)
     }, [])
+    console.log('loaded token', tokenLoaded);
     const [isSidebarOpen, setSidebarOpen] = useState(true)
     // console.log('issidebaropen', isSidebarOpen);
-
+    if (!tokenLoaded) {
+        return <div>
+            loading...
+        </div>
+    }
     return (
         <>
             <div id="layout-wrapper">
