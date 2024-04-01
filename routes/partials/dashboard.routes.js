@@ -1,5 +1,4 @@
 const express = require("express");
-const isAuthMiddleware = require("../../app/middlewares/isAuth.middleware");
 const router = express.Router();
 
 // router.get("/dashboard", function (req, res) {

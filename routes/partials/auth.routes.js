@@ -1,5 +1,4 @@
 const express = require("express");
-const isAuthMiddleware = require("../../app/middlewares/isAuth.middleware");
 const { server_locals } = require("../..");
 
 const router = express.Router();
