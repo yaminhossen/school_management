@@ -21,31 +21,31 @@ module.exports = (mainserver) => {
     router.use(websiteRoutes(mainserver));
     router.use(authRoutes());
     router.use(dashboardRoutes());
-    // router.use(authMiddleware())
+    router.use(authMiddleware())
     router.use(apiRoutes());
-    // router.post("/api/logout", async function (req, res, next) {
-    //     try {
-    //         // console.log('req user logoutt',req?.user?.id);
-    //         let id = req?.user?.id;
-    //         let user = await DataTable.findOne({ where: { id: id } })
-    //         req_token = req?.user?.token_salt;
-    //         user_token = user.dataValues?.token_salt;
-    //         if(req_token == user_token){
+    router.post("/api/logout", async function (req, res, next) {
+        try {
+            // console.log('req user logoutt',req?.user?.id);
+            let id = req?.user?.id;
+            let user = await DataTable.findOne({ where: { id: id } })
+            req_token = req?.user?.token_salt;
+            user_token = user.dataValues?.token_salt;
+            if(req_token == user_token){
 
-    //             console.log('this is simmiler', user.dataValues.token_salt);
-    //             user.token_salt = null;
-    //             await user.save();
-    //             res.send('asdfj')
-    //             // const item = await DataTable.update({token_salt: null}, { where: { id: id } })
-    //         }
-    //     } catch (error) {
-    //         console.log('something form test auth');
-    //         res.send('asdfj')
-    //     }
-    // }, function (req, res, next){
-    //     console.log('something form test auth');
-    //     res.send('asdfj')
-    // })
+                console.log('this is simmiler', user.dataValues.token_salt);
+                user.token_salt = null;
+                await user.save();
+                res.send('asdfj')
+                // const item = await DataTable.update({token_salt: null}, { where: { id: id } })
+            }
+        } catch (error) {
+            console.log('something form test auth');
+            res.send('asdfj')
+        }
+    }, function (req, res, next){
+        console.log('something form test auth');
+        res.send('asdfj')
+    })
     return router;
 
 };

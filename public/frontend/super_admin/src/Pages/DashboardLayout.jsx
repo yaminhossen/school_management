@@ -8,30 +8,30 @@ import { useNavigate } from 'react-router-dom';
 
 function Layout() {
     const navigate = useNavigate();
-    // useEffect(() => {
-    //     let token = localStorage.getItem('token');
-    //     if (token) {
-    //         axios.interceptors.request.use(
-    //             config => {
-    //                 config.headers['Authorization'] = `Bearer ${token}`;
-    //                 return config;
-    //             }
-    //         );
-    //         axios.interceptors.response.use(function (response) {
-    //             return response;
-    //         }, function (error) {
-    //             if (error.response.status == 401) {
-    //                 localStorage.removeItem('token');
-    //                 // window.location.href = "#/login";
-    //                 return navigate("/login");
-    //             }
-    //             return Promise.reject(error);
-    //         });
-    //     } else {
-    //         // window.location.href = "#/login";
-    //         return navigate("/login");
-    //     }
-    // }, [])
+    useEffect(() => {
+        let token = localStorage.getItem('token');
+        if (token) {
+            axios.interceptors.request.use(
+                config => {
+                    config.headers['Authorization'] = `Bearer ${token}`;
+                    return config;
+                }
+            );
+            axios.interceptors.response.use(function (response) {
+                return response;
+            }, function (error) {
+                if (error.response.status == 401) {
+                    localStorage.removeItem('token');
+                    // window.location.href = "#/login";
+                    return navigate("/login");
+                }
+                return Promise.reject(error);
+            });
+        } else {
+            // window.location.href = "#/login";
+            return navigate("/login");
+        }
+    }, [])
     const [isSidebarOpen, setSidebarOpen] = useState(true)
     // console.log('issidebaropen', isSidebarOpen);
 

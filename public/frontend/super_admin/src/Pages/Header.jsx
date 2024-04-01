@@ -8,7 +8,7 @@ function Header(props) {
         axios.post('/api/logout') 
             .then(response => {
                 window.localStorage.removeItem('token')
-                window.location.href = `/#/login`
+                window.location.href = `/api/dashboard/#/login`
             })
             .catch(error => {
             });

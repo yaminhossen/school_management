@@ -22,27 +22,21 @@ function Login() {
                 // {{-- localStorage.token = res.data.access_token; --}}
                 // console.log('from form submitddd',res.data?.data);
                 // console.log('token',res.data?.token);
-                // let token = res.data?.token;
+                let token = res.data?.token;
 
                 // return;
 
-                // if (res?.data?.data?.role === 'employee') {
-                //     localStorage.setItem('token', token)
-                //     return navigate("/dashboard");
-
-                // }
-
-                if (res?.data?.data === 'employee') {
-                    // localStorage.setItem('token', token)
+                if (res?.data?.data?.role === 'student') {
+                    localStorage.setItem('token', token)
                     return navigate("/dashboard");
 
                 }
+
+               
                 else{
-                    return navigate("/dashboard/crmentry");
+                    return navigate("/login");
                 }
 
-                console.log(res);
-                console.log(res.data?.data);
             })
             .catch(err => {
                 let { code, data } = err.response.data;
@@ -74,7 +68,7 @@ function Login() {
                                        
                                         <div class="input_text_area">
                                             <input name='email' type="email"
-                                            value={'mmm@gmail.com'} className="input_text" placeholder="Email . . ." />
+                                            value={'sagir@gmail.com'} className="input_text" placeholder="Email . . ." />
                                         </div>
                                     </div>
                                     {/* email area end */}

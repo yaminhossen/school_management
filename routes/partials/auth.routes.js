@@ -16,18 +16,18 @@ const userModel = db.users
 
 router
 // login method
+	// .post("/api/login-submit", async function (req, res) {
+		
+		
+	// 	// return res.redirect("/login");
+	// 	return res.status(201).json({ data: 'employee'});
+	// })
 	.post("/api/login-submit", async function (req, res) {
-		
-		
-		// return res.redirect("/login");
-		return res.status(201).json({ data: 'employee'});
-	})
-	.post("/api/login-submite", async function (req, res) {
 		// console.log("token form frontend",req.headers.authorization.split(' ')[1]);
 		const { email, password } = req.body;
 		let token_salt = crypto.randomBytes(64).toString("hex").substring(0, 20);
 		let user = await userModel.findOne({ where: { email: email } });
-		
+		console.log('user', user);
 		// return ;
 		if (user) {
 			let passMatch = await bcrypt.compare(password, user?.password);
