@@ -1,0 +1,59 @@
+import React, { useEffect } from 'react'
+import Header from './Header';
+import Sidebar from './Sidebar';
+import Main_content_page from './Main_content_page';
+import axios from 'axios';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+function Layout() {
+    const [tokenLoaded, setTokenLoaded] = useState(false)
+    const navigate = useNavigate();
+    useEffect(() => {
+        let token = localStorage.getItem('token');
+        if (token) {
+            axios.interceptors.request.use(
+                config => {
+                    config.headers['Authorization'] = `Bearer ${token}`;
+                    return config;
+                }
+                );
+                
+                axios.interceptors.response.use(function (response) {
+                    return response;
+                }, function (error) {
+                    if (error.response.status == 401) {
+                    localStorage.removeItem('token');
+                    // window.location.href = "#/login";
+                    return navigate("/login");
+                }
+                return Promise.reject(error);
+            });
+        } else {
+            // window.location.href = "#/login";
+            return navigate("/login");
+        }
+        setTokenLoaded(true)
+    }, [])
+    console.log('loaded token', tokenLoaded);
+    const [isSidebarOpen, setSidebarOpen] = useState(true)
+    // console.log('issidebaropen', isSidebarOpen);
+    if (!tokenLoaded) {
+        return <div>
+            loading...
+        </div>
+    }
+    return (
+        <>
+            <div id="layout-wrapper">
+
+                <div className='full_area'>
+                   <h2>this is interface</h2>
+                </div>
+
+            </div>
+        </>
+    )
+}
+
+export default Layout

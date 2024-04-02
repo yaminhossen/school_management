@@ -8,7 +8,7 @@ let server = null;
 module.exports = (mainserver) => {
 	router
 		.get("/", function (req, res) {
-			return res.render("frontend/home");
+			return res.render("auth/login");
 		})
 		.get("/login", function (req, res) {
 			return res.render("auth/login");
@@ -16,7 +16,7 @@ module.exports = (mainserver) => {
 		.get("/home", function (req, res) {
 			return res.render("frontend/home");
 		})
-		.get("/dashboard", function (req, res) {
+		.get("/super-admin", function (req, res) {
 			return res.render("backend/super_admin/dashboard");
 		})
 	// 	.get("/about", website_controller.about)

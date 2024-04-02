@@ -21,7 +21,7 @@ router
 	// 	// return res.redirect("/login");
 	// 	return res.status(201).json({ data: 'employee'});
 	// })
-	.post("/api/login-submit", async function (req, res) {
+	.post("/login-submit", async function (req, res) {
 		// console.log("token form frontend",req.headers.authorization.split(' ')[1]);
 		const { email, password } = req.body;
 		let token_salt = crypto.randomBytes(64).toString("hex").substring(0, 20);

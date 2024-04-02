@@ -5,10 +5,10 @@ import { Link, useLocation } from 'react-router-dom'
 function Header(props) {
     const location = useLocation();
     const handleLogout = () => {
-        axios.post('/api/logout') 
+        axios.post('/logout') 
             .then(response => {
                 window.localStorage.removeItem('token')
-                window.location.href = `/api/dashboard/#/login`
+                window.location.href = `/super-admin/#/login`
             })
             .catch(error => {
             });

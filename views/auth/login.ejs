@@ -1,1 +1,107 @@
-<h2>This is login page</h2>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>login</title>
+    <link rel="stylesheet" href="/fonts/google_icon/google_icons.css">
+    <link rel="stylesheet" href="/backend/css/login.css">
+    <script src="/frontend/assets/js/axios.js"></script>
+    <script src="/backend/js/sweetalert.js"></script>
+</head>
+
+<body>
+    <div   class='login_page'>
+        <div class='container'>
+            <div class='login_page_content'>
+
+                <div class='login_form_all_content'>
+                    <div class='form_logo'>
+                        <img src="./assets/customize_img/logo_big.png" alt="logo" />
+                    </div>
+                    <div class='form_title'>
+                        <h2 class='title_text'>CRM</h2>
+                    </div>
+
+                    <form onsubmit="(event) =>loginSubmit(event)" method="POST" action="/login-submit" >
+                        <div class="input_area">
+                            <div class="icon_and_input_text_area">
+                               
+                                <div class="input_text_area">
+                                    <input name='email' type="email"
+                                    value="sagir@gmail.com "class="input_text" placeholder="Email . . ." />
+                                </div>
+                            </div>
+                            <div class="icon_and_input_text_area">
+                               
+                                <div class="input_text_area">
+                                    <input name='password' type="password"
+                                     value="1234" class="input_text" placeholder="Enter your password . . ." />
+                                </div>
+                            </div>
+                            <div class='login_button_area'>
+                                <button class='login_button'>Login</button>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        const remove_form_action_classes = function () {
+            [...document.querySelectorAll('form button')].forEach(e => e.disabled = false);
+            [...document.querySelectorAll('form .error')].forEach(e => e.remove());
+            [...document.querySelectorAll('form .form_group_error')].forEach(e => e.classList.remove("form_group_error"));
+        }
+        const loginSubmit = (event) => {
+            event.preventDefault();
+        
+        let token = localStorage.getItem('token');
+        console.log('token value', token);
+
+        const config = {
+            headers: {
+              'Authorization': `Bearer ${token}`,
+            }
+          };
+
+        axios.post("/login-submit", new FormData(event.currentTarget), config)
+            .then(res => {
+                // {{-- localStorage.token = res.data.access_token; --}}
+                // console.log('from form submitddd',res.data?.data);
+                // console.log('token',res.data?.token);
+                let token = res.data?.token;
+
+                // return;
+
+                if (res?.data?.data?.role === 'student') {
+                    // localStorage.setItem('token', token)
+                    console.log('token',res.data?.token);
+                    // return navigate("/super-admin/dashboard");
+                    return location.href = "/super-admin/dashboard";
+
+                }
+
+               
+                else{
+                    // return navigate("/login");
+                    return location.href = "/";
+                }
+
+            })
+            .catch(err => {
+                let { code, data } = err.response.data;
+                console.log(data);
+                console.log(err);
+            })
+        }
+    </script>
+</body>
+
+</html>
